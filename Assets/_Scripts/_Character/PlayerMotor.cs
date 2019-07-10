@@ -9,14 +9,15 @@ public class PlayerMotor : MonoBehaviour
 
     [SerializeField] private float cameraRotationLimit = 80f;
 
-    private Vector3 velocity = Vector3.zero;
+
     private Vector3 rotation = Vector3.zero;
     private float cameraRotationX = 0f;
+    private Vector3 velocity = Vector3.zero;
     private float currentCameraRotationX = 0f;
 
     private Rigidbody rb;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -39,14 +40,14 @@ public class PlayerMotor : MonoBehaviour
         cameraRotationX = _cameraRotationX;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         PerformMovement();
         PerformRotation();
     }
 
     // Perform the calculated Movement
-    private void PerformMovement()
+    void PerformMovement()
     {
         if(velocity != Vector3.zero)
         {
@@ -55,7 +56,7 @@ public class PlayerMotor : MonoBehaviour
     }
 
     // Perform the calculated Rotations
-    private void PerformRotation()
+    void PerformRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         if(cam != null)

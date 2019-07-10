@@ -10,19 +10,19 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerMotor motor;
 
-    private void Start()
+    void Start()
     {
         motor = GetComponent<PlayerMotor>();
     }
 
-    private void Update()
+    void Update()
     {
         CalculateMovement();
         CalculateRotation();
     }
 
     // Calculates Player Movement as Vector3
-    private void CalculateMovement()
+    void CalculateMovement()
     {
         float xMovement = Input.GetAxisRaw("Horizontal");
         float yMovement = Input.GetAxisRaw("Vertical");
@@ -36,7 +36,7 @@ public class PlayerInputController : MonoBehaviour
     }
 
     // Calculate Rotation as Vector3
-    private void CalculateRotation()
+    void CalculateRotation()
     {
         // this is for turning around
         float yRot = Input.GetAxisRaw("Mouse X");
