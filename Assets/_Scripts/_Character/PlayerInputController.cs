@@ -48,8 +48,8 @@ public class PlayerInputController : MonoBehaviour
         // this is for the camera rotation
         float xRot = Input.GetAxisRaw("Mouse Y");
 
-        Vector3 _cameraRotation = new Vector3(xRot, 0f, 0f) * mouseSensitivity;
+        float _cameraRotationX = xRot * mouseSensitivity;
 
-        motor.RotateCamera(_cameraRotation);
+        motor.RotateCamera(_cameraRotationX);
     }
 }
