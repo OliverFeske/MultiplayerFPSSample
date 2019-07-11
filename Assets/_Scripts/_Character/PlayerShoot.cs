@@ -5,8 +5,9 @@ namespace MultiFPS
 {
     public class PlayerShoot : NetworkBehaviour
     {
-        public PlayerWeapon weapon;
-
+        [SerializeField] private PlayerWeapon weapon;
+        [SerializeField] private GameObject weaponGFX;
+        [SerializeField] private string weaponLayerName = "Weapon";
         [SerializeField] private Camera cam;
         [SerializeField] private LayerMask mask;
 
@@ -20,6 +21,8 @@ namespace MultiFPS
                 Debug.LogError("PlayerShoot: No Camera referred!");
                 this.enabled = false;
             }
+
+            weaponGFX.layer = LayerMask.NameToLayer(weaponLayerName);
         }
 
         void Update()

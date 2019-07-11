@@ -9,6 +9,12 @@ namespace MultiFPS
         [SerializeField] Behaviour[] componentsToDisable;
 
         [SerializeField] private string remotePlayerLayer = "RemotePlayer";
+        [SerializeField] private string dontDrawLayerName = "DontDraw";
+
+        [SerializeField] private GameObject playerGraphics;
+        [SerializeField] private GameObject playerUIPrefab;
+
+        private GameObject playerUIInstance;
 
         private Camera sceneCamera;
 
@@ -27,6 +33,13 @@ namespace MultiFPS
                 {
                     sceneCamera.gameObject.SetActive(false);
                 }
+
+                // Disable playergraphics for local Player
+                SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
+
+                // Create PlayerUI
+                playerUIInstance = Instantiate(playerUIPrefab);
+                playerUIInstance.name = playerUIPrefab.name;
             }
 
             GetComponent<PlayerManager>().Setup();
@@ -59,9 +72,21 @@ namespace MultiFPS
             gameObject.layer = LayerMask.NameToLayer(remotePlayerLayer);                  // assign the new layer to the gameobject
         }
 
+        void SetLayerRecursively(GameObject obj, int newLayer)
+        {
+            obj.layer = newLayer;
+
+            foreach(Transform child in obj.transform)
+            {
+                SetLayerRecursively(child.gameObject, newLayer);
+            }
+        }
+
         // when the Player disconnects activate the sceneCamera and unregister the player
         void OnDisable()
         {
+            Destroy(playerUIInstance);
+
             if (sceneCamera != null)
             {
                 sceneCamera.gameObject.SetActive(true);
