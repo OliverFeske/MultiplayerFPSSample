@@ -103,8 +103,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.329, y: -0.278, z: 1.137}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7958458995404566770}
+  m_Children: []
   m_Father: {fileID: 7958458994152640236}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -503,6 +502,7 @@ GameObject:
   - component: {fileID: 2779110876787330401}
   - component: {fileID: 4317077708334373611}
   - component: {fileID: 1312534406331988050}
+  - component: {fileID: 172959565770947701}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -676,7 +676,6 @@ MonoBehaviour:
   - {fileID: 1429546130940568584}
   - {fileID: 7958458994152640235}
   - {fileID: 7958458994152640233}
-  - {fileID: 4317077708334373611}
   - {fileID: 3952303943018830805}
   remotePlayerLayer: RemotePlayer
   dontDrawLayerName: DontDraw
@@ -695,12 +694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578cb6b7ab328604f9f4aa9b0d217fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon:
-    name: Deagle
-    damage: 25
-    range: 200
-  weaponGFX: {fileID: 7958458995404566769}
-  weaponLayerName: Weapon
   cam: {fileID: 7958458994152640235}
   mask:
     serializedVersion: 2
@@ -722,80 +715,24 @@ MonoBehaviour:
   - {fileID: 1429546130940568584}
   - {fileID: 4317077708334373611}
   wasEnabled: 
---- !u!1 &7958458995404566769
-GameObject:
+--- !u!114 &172959565770947701
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7958458995404566770}
-  - component: {fileID: 7958458995404566773}
-  - component: {fileID: 7958458995404566772}
-  m_Layer: 9
-  m_Name: Weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7958458995404566770
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7958458995404566769}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20000003, y: 0.2, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1121515379363264531}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7958458995404566773
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7958458995404566769}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7958458995404566772
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7958458995404566769}
+  m_GameObject: {fileID: 7958458994215206655}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3811a8988dfffc9438626b1f2b1ce2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLayerName: Weapon
+  primaryWeapon:
+    name: Deagle
+    damage: 10
+    range: 100
+    fireRate: 5
+    graphics: {fileID: 3498520262319898594, guid: 706b8e65d03a8b94b9b63d819fda344f,
+      type: 3}
+  weaponHolder: {fileID: 1121515379363264531}
