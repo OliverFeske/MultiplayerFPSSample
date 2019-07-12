@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 484544938459612897}
   - component: {fileID: 484544938460907203}
   - component: {fileID: 484544938461905923}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484544938459612899}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: DesertEagleParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 484544938459612901}
   - component: {fileID: 484544938460907205}
   - component: {fileID: 484544938461905925}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Clipper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 484544938459612903}
   - component: {fileID: 484544938460907207}
   - component: {fileID: 484544938461905927}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 484544938459612905}
   - component: {fileID: 484544938460907211}
   - component: {fileID: 484544938461905931}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 484544938459612907}
   - component: {fileID: 484544938460907213}
   - component: {fileID: 484544938461905933}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Lock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 484544938459612909}
   - component: {fileID: 484544938460907215}
   - component: {fileID: 484544938461905935}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Lock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 484544938459612911}
   - component: {fileID: 484544938460907201}
   - component: {fileID: 484544938461905921}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 484544938459612917}
   - component: {fileID: 484544938460907223}
   - component: {fileID: 484544938461905943}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Reloader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 484544938459612919}
   - component: {fileID: 484544938460907209}
   - component: {fileID: 484544938461905929}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Plastic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10231,7 +10231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3498520262319898595}
   - component: {fileID: 77477792952977605}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Deagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
