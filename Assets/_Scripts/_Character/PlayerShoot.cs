@@ -70,6 +70,9 @@ namespace MultiFPS
                 {
                     CmdPlayerIsShot(_hit.collider.name, currentWeapon.damage);                   // send over an id of the hit object and some damage
                 }
+
+				// hit something and call CmdOnHit on server
+				CmdOnHit(_hit.point, _hit.normal);
             }
         }
 
@@ -80,6 +83,14 @@ namespace MultiFPS
             RpcDoShootEffect();
         }
 
+		// Is called on the server when something is hit
+		// takes in the hit point and the normal of the surface
+		[Command]
+		void CmdOnHit(Vector3 _pos, Vector3 _normal)
+		{
+			RpcDoHitEffect(_pos, _normal);
+		}
+
         // Is called on all clients when we need to do a shoot effect
         [ClientRpc]
         void RpcDoShootEffect()
@@ -87,6 +98,14 @@ namespace MultiFPS
             weaponManager.GetCurrentGraphics().muzzleFlash.Play();
         }
 
+		// Is called on all clients
+		// spawn in effects
+		[ClientRpc]
+		void RpcDoHitEffect(Vector3 _pos, Vector3 _normal)
+		{
+			GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
+			Destroy(_hitEffect, 2f);
+		}
 
         // Called on the server
         [Command]

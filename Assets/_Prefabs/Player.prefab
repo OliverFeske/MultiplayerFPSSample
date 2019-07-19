@@ -682,6 +682,7 @@ MonoBehaviour:
   playerGraphics: {fileID: 4934701347076666309}
   playerUIPrefab: {fileID: 6672559167679009592, guid: 9a327f6bc3d3d444cb4a9064eb92a25b,
     type: 3}
+  playerUIInstance: {fileID: 0}
 --- !u!114 &4317077708334373611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,11 +711,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74b92de47c6d524ba825451edf19b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  disableGameObjectsOnDeath:
+  - {fileID: 4934701347076666309}
+  deathEffect: {fileID: 6745824843076361220, guid: 8fb000350cef169479b1c12e14b44431,
+    type: 3}
+  spawnEffect: {fileID: 9135682262361282948, guid: e2dbbc1e45f1ee14599a797c96457fa3,
+    type: 3}
   disableOnDeath:
   - {fileID: 1429546130940568584}
   - {fileID: 4317077708334373611}
   wasEnabled: 
+  maxHealth: 100
 --- !u!114 &172959565770947701
 MonoBehaviour:
   m_ObjectHideFlags: 0

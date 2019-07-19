@@ -14,9 +14,7 @@ namespace MultiFPS
         [SerializeField] private GameObject playerGraphics;
         [SerializeField] private GameObject playerUIPrefab;
 
-        private GameObject playerUIInstance;
-
-        private Camera sceneCamera;
+        [HideInInspector] public GameObject playerUIInstance;
 
         void Start()
         {
@@ -28,22 +26,16 @@ namespace MultiFPS
             // disable the sceneCamera if there is a localPlayer
             else
             {
-                sceneCamera = Camera.main;
-                if (sceneCamera != null)
-                {
-                    sceneCamera.gameObject.SetActive(false);
-                }
-
                 // Disable playergraphics for local Player
                 SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
 
                 // Create PlayerUI
                 playerUIInstance = Instantiate(playerUIPrefab);
                 playerUIInstance.name = playerUIPrefab.name;
-            }
 
-            GetComponent<PlayerManager>().Setup();
-        }
+				GetComponent<PlayerManager>().PlayerSetup();
+			}
+		}
 
         // when the client is connected do this
         public override void OnStartClient()
@@ -87,10 +79,7 @@ namespace MultiFPS
         {
             Destroy(playerUIInstance);
 
-            if (sceneCamera != null)
-            {
-                sceneCamera.gameObject.SetActive(true);
-            }
+			GameManager.instance.SetSceneCameraActive(true);
 
             GameManager.UnRegisterPlayer(transform.name);
         }

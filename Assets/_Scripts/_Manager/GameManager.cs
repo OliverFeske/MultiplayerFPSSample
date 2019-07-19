@@ -5,6 +5,8 @@ namespace MultiFPS
 {
     public class GameManager : MonoBehaviour
     {
+		[SerializeField] private GameObject sceneCamera;
+
         public static GameManager instance;
 
         public MatchSettings matchSettings;
@@ -20,6 +22,13 @@ namespace MultiFPS
                 instance = this;
             }
         }
+
+		public void SetSceneCameraActive(bool isActive)
+		{
+			if(sceneCamera == null) { return; }
+
+			sceneCamera.SetActive(isActive);
+		}
 
         #region Player tracking
 
