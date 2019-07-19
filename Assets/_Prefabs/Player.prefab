@@ -713,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableGameObjectsOnDeath:
   - {fileID: 4934701347076666309}
+  - {fileID: 7958458994152640232}
   deathEffect: {fileID: 6745824843076361220, guid: 8fb000350cef169479b1c12e14b44431,
     type: 3}
   spawnEffect: {fileID: 9135682262361282948, guid: e2dbbc1e45f1ee14599a797c96457fa3,

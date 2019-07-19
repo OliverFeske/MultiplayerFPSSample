@@ -142,6 +142,13 @@ namespace MultiFPS
 				_col.enabled = true;
 			}
 
+			// switch cameras
+			if (isLocalPlayer)
+			{
+				GameManager.instance.SetSceneCameraActive(true);
+				GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
+			}
+
 			// Spawn a death effect
 			GameObject _gfxIns = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
 			Destroy(_gfxIns, 3f);
