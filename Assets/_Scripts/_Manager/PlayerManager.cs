@@ -14,6 +14,8 @@ namespace MultiFPS
 		[SerializeField] private bool[] wasEnabled;
 		[SerializeField] private int maxHealth = 100;
 
+		private bool firstSetup = true;
+
 		[SyncVar] private int currentHealth;                     // unity recognizes changes and syncs them with all other clients
 
 		[SyncVar]
@@ -25,11 +27,14 @@ namespace MultiFPS
 		}
 
 		// Setup Player over the server
-		public void PlayerSetup()
+		public void SetupPlayer()
 		{
-			// switch cameras
-			GameManager.instance.SetSceneCameraActive(true);
-			GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
+			if (isLocalPlayer)
+			{
+				// switch cameras
+				GameManager.instance.SetSceneCameraActive(false);
+				GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+			}
 
 			CmdBroadcastNewPlayerSetup();
 		}
@@ -45,25 +50,29 @@ namespace MultiFPS
 		[ClientRpc]
 		void RpcSetupPlayerOnAllClients()
 		{
-			wasEnabled = new bool[disableOnDeath.Length];                   // gives the wasEnabled Array the lenght of the disableOnDeath Array
-			for (int i = 0; i < wasEnabled.Length; i++)                     // writes into the array if the Behaviour was enabled or not as bool
+			if (firstSetup)
 			{
-				wasEnabled[i] = disableOnDeath[i].enabled;
+				wasEnabled = new bool[disableOnDeath.Length];                   // gives the wasEnabled Array the lenght of the disableOnDeath Array
+				for (int i = 0; i < wasEnabled.Length; i++)                     // writes into the array if the Behaviour was enabled or not as bool
+				{
+					wasEnabled[i] = disableOnDeath[i].enabled;
+				}
+				firstSetup = false;
 			}
 
 			SetDefaults();
 		}
 
-		// Method to test if player is killed
-		void Update()
-		{
-			if (!isLocalPlayer) { return; }
+		//// Method to test if player is killed
+		//void Update()
+		//{
+		//	if (!isLocalPlayer) { return; }
 
-			if (Input.GetKeyDown(KeyCode.K))
-			{
-				RpcTakeDamage(9999);
-			}
-		}
+		//	if (Input.GetKeyDown(KeyCode.K))
+		//	{
+		//		RpcTakeDamage(9999);
+		//	}
+		//}
 
 		// Restores the default values for a Player
 		public void SetDefaults()
@@ -89,12 +98,6 @@ namespace MultiFPS
 			if (_col != null)
 			{
 				_col.enabled = true;
-			}
-
-			if (isLocalPlayer)
-			{
-				GameManager.instance.SetSceneCameraActive(false);
-				GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
 			}
 
 			// create spawn effect
@@ -167,11 +170,9 @@ namespace MultiFPS
 			transform.position = _spawnPoint.position;
 			transform.rotation = _spawnPoint.rotation;
 
-			// switch cameras
-			GameManager.instance.SetSceneCameraActive(false);
-			GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+			yield return new WaitForSeconds(0.1f);
 
-			SetDefaults();
+			SetupPlayer();
 
 			Debug.Log(transform.name + " respawned");
 		}

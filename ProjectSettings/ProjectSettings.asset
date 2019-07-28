@@ -603,10 +603,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 8ac25aa2-9693-4793-89c3-650bcc845f93
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Multiplayer FPS Sample (1)
+  organizationId: nackenmassage
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
