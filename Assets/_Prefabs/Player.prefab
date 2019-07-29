@@ -680,8 +680,7 @@ MonoBehaviour:
   remotePlayerLayer: RemotePlayer
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 4934701347076666309}
-  playerUIPrefab: {fileID: 6672559167679009592, guid: 9a327f6bc3d3d444cb4a9064eb92a25b,
-    type: 3}
+  playerUIPrefab: {fileID: 178, guid: 9a327f6bc3d3d444cb4a9064eb92a25b, type: 3}
   playerUIInstance: {fileID: 0}
 --- !u!114 &4317077708334373611
 MonoBehaviour:

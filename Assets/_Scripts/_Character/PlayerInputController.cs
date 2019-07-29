@@ -19,6 +19,8 @@ namespace MultiFPS
 
         void Update()
         {
+			if(PauseMenu.IsOn) { return; }
+
             CalculateMovement();
             CalculateRotation();
         }

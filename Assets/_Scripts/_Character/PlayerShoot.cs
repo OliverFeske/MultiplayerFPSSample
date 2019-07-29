@@ -30,6 +30,8 @@ namespace MultiFPS
         {
             currentWeapon = weaponManager.GetCurrentWeapon();
 
+			if (PauseMenu.IsOn) { return; }
+
             // if the fire rate is less or equal to 0 shoot by clicking
             if(currentWeapon.fireRate <= 0f)
             {
