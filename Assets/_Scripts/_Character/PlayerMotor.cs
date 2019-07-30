@@ -19,7 +19,15 @@ namespace MultiFPS
 
         private Rigidbody rb;
 
-        void Start()
+		void Update()
+		{
+			if (Input.GetButtonDown("Jump"))
+			{
+				rb.AddForce(Vector3.up * 7, ForceMode.Impulse);
+			}
+		}
+
+		void Start()
         {
             rb = GetComponent<Rigidbody>();
         }

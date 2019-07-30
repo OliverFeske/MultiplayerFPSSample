@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5810603372462411328}
   - component: {fileID: 7498029815061596857}
   - component: {fileID: 3577971038859338953}
-  - component: {fileID: 7574814412993619723}
   - component: {fileID: 1574773487795859174}
   m_Layer: 0
   m_Name: TireWall
@@ -79,25 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &7574814412993619723
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4796914326858013138}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9f744f4dfcd0bfd4aa3e8ae14a463448, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!64 &1574773487795859174
 MeshCollider:
   m_ObjectHideFlags: 0

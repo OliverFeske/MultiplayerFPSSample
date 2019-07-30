@@ -56,5 +56,5 @@ namespace MultiFPS
 
             motor.RotateCamera(_cameraRotationX);
         }
-    }
+	}
 }
