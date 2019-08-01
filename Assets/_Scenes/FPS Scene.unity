@@ -57,7 +57,7 @@ LightmapSettings:
     serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 16
-    m_AtlasSize: 1024
+    m_AtlasSize: 512
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -33478,7 +33478,7 @@ MonoBehaviour:
   applyRangeAttenuation: 1
   useOldInspector: 0
   featuresFoldout: 1
-  showAdditionalSettings: 0
+  showAdditionalSettings: 1
   displayLightIntensity: 10
   displayAreaLightEmissiveMesh: 0
   lightLayers: 1
