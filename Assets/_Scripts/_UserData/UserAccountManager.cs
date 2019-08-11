@@ -61,7 +61,7 @@ namespace MultiFPS
 			StartCoroutine(SetData(data));
 		}
 
-		public void LoggedIn_LoadDataButtonPressed(OnDataReceivedCallback onDataReceived)
+		public void GetUserData(OnDataReceivedCallback onDataReceived)
 		{
 			StartCoroutine(GetData(onDataReceived));
 		}
@@ -87,11 +87,12 @@ namespace MultiFPS
 			}
 			else
 			{
-
 				data = response;
 			}
 			if (onDataReceived != null)
+			{
 				onDataReceived.Invoke(data);
+			}
 		}
 
 		IEnumerator SetData(string data)
