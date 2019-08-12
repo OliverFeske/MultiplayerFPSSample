@@ -38,6 +38,28 @@ namespace MultiFPS
 				PlayerUI ui = playerUIInstance.GetComponent<PlayerUI>();
 
 				GetComponent<PlayerManager>().SetupPlayer();
+
+				string _username = "Loading...";
+				if (UserAccountManager.IsLoggedIn)
+				{
+					_username = UserAccountManager.PlayerUsername;
+				}
+				else
+				{
+					_username = transform.name;
+				}
+
+				CmdSetUsername(transform.name, _username);
+			}
+		}
+
+		[Command]
+		void CmdSetUsername(string _playerID, string _username)
+		{
+			PlayerManager player = GameManager.GetPlayer(_playerID);
+			if(player == null)
+			{
+				player.Username = _username;
 			}
 		}
 

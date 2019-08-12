@@ -4,57 +4,74 @@ using UnityEngine;
 
 namespace MultiFPS
 {
-    [RequireComponent(typeof(PlayerMotor))]
-    public class PlayerInputController : MonoBehaviour
-    {
-        [SerializeField] private float moveSpeed = 15f;
-        [SerializeField] private float mouseSensitivity = 3f;
+	[RequireComponent(typeof(PlayerMotor))]
+	public class PlayerInputController : MonoBehaviour
+	{
+		[SerializeField] private float moveSpeed = 15f;
+		[SerializeField] private float mouseSensitivity = 3f;
 
-        private PlayerMotor motor;
+		private PlayerMotor motor;
 
-        void Start()
-        {
-            motor = GetComponent<PlayerMotor>();
-        }
+		void Start()
+		{
+			motor = GetComponent<PlayerMotor>();
+		}
 
-        void Update()
-        {
-			if(PauseMenu.IsOn) { return; }
+		void Update()
+		{
+			if (PauseMenu.IsOn)
+			{
+				if(Cursor.lockState != CursorLockMode.None)
+				{
+					Cursor.lockState = CursorLockMode.None;
+				}
 
-            CalculateMovement();
-            CalculateRotation();
-        }
+				motor.Move(Vector3.zero);
+				motor.Rotate(Vector3.zero);
+				motor.RotateCamera(0f);
 
-        // Calculates Player Movement as Vector3
-        void CalculateMovement()
-        {
-            float xMovement = Input.GetAxis("Horizontal");
-            float yMovement = Input.GetAxis("Vertical");
+				return;
+			}
 
-            Vector3 moveHorizontal = transform.right * xMovement;
-            Vector3 MoveVertical = transform.forward * yMovement;
+			if (Cursor.lockState != CursorLockMode.Locked)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+			}
 
-            Vector3 _velocity = (moveHorizontal + MoveVertical) * moveSpeed;
+			CalculateMovement();
+			CalculateRotation();
+		}
 
-            motor.Move(_velocity);
-        }
+		// Calculates Player Movement as Vector3
+		void CalculateMovement()
+		{
+			float xMovement = Input.GetAxis("Horizontal");
+			float yMovement = Input.GetAxis("Vertical");
 
-        // Calculate Rotation as Vector3
-        void CalculateRotation()
-        {
-            // this is for turning around
-            float yRot = Input.GetAxisRaw("Mouse X");
+			Vector3 moveHorizontal = transform.right * xMovement;
+			Vector3 MoveVertical = transform.forward * yMovement;
 
-            Vector3 _rotation = new Vector3(0f, yRot, 0f) * mouseSensitivity;
+			Vector3 _velocity = (moveHorizontal + MoveVertical) * moveSpeed;
 
-            motor.Rotate(_rotation);
+			motor.Move(_velocity);
+		}
 
-            // this is for the camera rotation
-            float xRot = Input.GetAxisRaw("Mouse Y");
+		// Calculate Rotation as Vector3
+		void CalculateRotation()
+		{
+			// this is for turning around
+			float yRot = Input.GetAxisRaw("Mouse X");
 
-            float _cameraRotationX = xRot * mouseSensitivity;
+			Vector3 _rotation = new Vector3(0f, yRot, 0f) * mouseSensitivity;
 
-            motor.RotateCamera(_cameraRotationX);
-        }
+			motor.Rotate(_rotation);
+
+			// this is for the camera rotation
+			float xRot = Input.GetAxisRaw("Mouse Y");
+
+			float _cameraRotationX = xRot * mouseSensitivity;
+
+			motor.RotateCamera(_cameraRotationX);
+		}
 	}
 }

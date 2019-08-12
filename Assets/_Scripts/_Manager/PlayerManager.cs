@@ -9,6 +9,8 @@ namespace MultiFPS
 	{
 		public int deaths;
 		public int kills;
+		[SyncVar]
+		public string Username = "Loading...";
 
 		[SerializeField] private GameObject[] disableGameObjectsOnDeath;
 		[SerializeField] private GameObject deathEffect;

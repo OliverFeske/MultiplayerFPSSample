@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -29,6 +30,11 @@ namespace MultiFPS
 		public void RefreshRoomList()
 		{
 			ClearRoomList();
+
+			if(networkManager.matchMaker == null)
+			{
+				networkManager.StartMatchMaker();
+			}
 			networkManager.matchMaker.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
 			status.text = "Loading...";
 		}
@@ -49,7 +55,7 @@ namespace MultiFPS
 				_roomListItemGO.transform.SetParent(roomListParent);
 
 				RoomListItem _roomListItem = _roomListItemGO.GetComponent<RoomListItem>();
-				if(_roomListItem != null)
+				if (_roomListItem != null)
 				{
 					_roomListItem.Setup(match, JoinRoom);
 				}
@@ -76,8 +82,35 @@ namespace MultiFPS
 		public void JoinRoom(MatchInfoSnapshot _match)
 		{
 			networkManager.matchMaker.JoinMatch(_match.networkId, "", "", "", 0, 0, networkManager.OnMatchJoined);
+			StartCoroutine(WaitForJoin());
+		}
+
+		IEnumerator WaitForJoin()
+		{
 			ClearRoomList();
-			status.text = "Joining...";
+
+			int _countdown = 20;
+			while (_countdown > 0)
+			{
+				status.text = "Joining...( " + _countdown + " )";
+
+				yield return new WaitForSeconds(1);
+
+				_countdown--;
+			}
+
+			// Failed to connect
+			status.text = "Failed to connect.";
+			yield return new WaitForSeconds(1);
+
+			MatchInfo matchInfo = networkManager.matchInfo;
+			if(matchInfo != null)
+			{
+				networkManager.matchMaker.DropConnection(matchInfo.networkId, matchInfo.nodeId, 0, networkManager.OnDropConnection);
+				networkManager.StopHost();
+			}
+
+			RefreshRoomList();
 		}
 	}
 }

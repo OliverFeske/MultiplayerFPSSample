@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MultiFPS
 {
@@ -55,6 +56,12 @@ namespace MultiFPS
         {
             return players[_playerID];
         }
+
+		public static PlayerManager[] GetAllPlayers()
+		{
+			return players.Values.ToArray();
+		}
+
 
         //void OnGUI()
         //{

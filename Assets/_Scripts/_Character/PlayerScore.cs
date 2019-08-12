@@ -7,6 +7,9 @@ namespace MultiFPS
 	[RequireComponent(typeof(PlayerManager))]
 	public class PlayerScore : MonoBehaviour
 	{
+		private int lastKills = 0;
+		private int lastDeaths = 0;
+
 		PlayerManager player;
 
 		void Start()
@@ -43,18 +46,23 @@ namespace MultiFPS
 
 		void OnDataRecieved(string data)
 		{
-			if (player.kills == 0 & player.deaths == 0) { return; }
+			if(player.kills <= lastKills && player.deaths <= lastDeaths) { return; }
+
+			int _killsSinceLast = player.kills - lastKills;
+			int _deathsSinceLast = player.deaths - lastDeaths;
+
+			if (_killsSinceLast == 0 && _deathsSinceLast == 0) { return; }
 
 			int _kills = UserAccountDataTranslator.DataToKills(data);
 			int _deaths = UserAccountDataTranslator.DataToDeaths(data);
 
-			int _newKills = player.kills + _kills;
-			int _newDeaths = player.deaths + _deaths;
+			int _newKills = _killsSinceLast + _kills;
+			int _newDeaths = _deathsSinceLast + _deaths;
 
 			string _newData = UserAccountDataTranslator.ValuesToData(_newKills, _newDeaths);
 
-			player.kills = 0;
-			player.deaths = 0;
+			lastKills = player.kills;
+			lastKills = player.deaths;
 
 			UserAccountManager.instance.LoggedIn_SaveDataButtonPressed(_newData);
 		}

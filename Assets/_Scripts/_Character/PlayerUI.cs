@@ -6,7 +6,8 @@ namespace MultiFPS
 {
 	public class PlayerUI : MonoBehaviour
 	{
-		[SerializeField] GameObject pauseMenu;
+		[SerializeField] private GameObject pauseMenu;
+		[SerializeField] private GameObject scoreBoard;
 
 		void Start()
 		{
@@ -19,9 +20,18 @@ namespace MultiFPS
 			{
 				TogglePauseMenu();
 			}
+
+			if (Input.GetKeyDown(KeyCode.Tab))
+			{
+				scoreBoard.SetActive(true);
+			}
+			else if (Input.GetKeyUp(KeyCode.Tab))
+			{
+				scoreBoard.SetActive(false);
+			}
 		}
 
-		void TogglePauseMenu()
+		public void TogglePauseMenu()
 		{
 			pauseMenu.SetActive(!pauseMenu.activeSelf);
 			PauseMenu.IsOn = pauseMenu.activeSelf;
