@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 4317077708334373611}
   - component: {fileID: 1312534406331988050}
   - component: {fileID: 172959565770947701}
+  - component: {fileID: 4016573023897373409}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -710,6 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74b92de47c6d524ba825451edf19b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deaths: 0
+  kills: 0
   disableGameObjectsOnDeath:
   - {fileID: 4934701347076666309}
   - {fileID: 7958458994152640232}
@@ -743,3 +746,15 @@ MonoBehaviour:
     graphics: {fileID: 3498520262319898594, guid: 706b8e65d03a8b94b9b63d819fda344f,
       type: 3}
   weaponHolder: {fileID: 1121515379363264531}
+--- !u!114 &4016573023897373409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958458994215206655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbcf76efaebd4f44898511786050eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -9,6 +9,11 @@ namespace MultiFPS
 		private static string KILLS_SYMBOL = "[KILLS]";
 		private static string DEATHS_SYMBOL = "[DEATHS]";
 
+		public static string ValuesToData(int _kills, int _deaths)
+		{
+			return KILLS_SYMBOL + _kills + "/" + DEATHS_SYMBOL + _deaths;
+		}
+
 		public static int DataToKills(string data)
 		{
 			return int.Parse(DataToValue(data, KILLS_SYMBOL));

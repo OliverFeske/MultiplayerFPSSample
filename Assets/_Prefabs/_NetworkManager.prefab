@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4125173402979440008}
   - component: {fileID: 4125173402979440009}
   - component: {fileID: 4125173402979440011}
-  - component: {fileID: 2938077760720941596}
   m_Layer: 0
   m_Name: _NetworkManager
   m_TagString: Untagged
@@ -129,19 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  showGUI: 1
+  showGUI: 0
   offsetX: 0
   offsetY: 0
---- !u!114 &2938077760720941596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125173402979440022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3174d8c75f323448e7513e2fc72129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomSize: 10

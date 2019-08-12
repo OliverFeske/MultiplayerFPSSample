@@ -21,7 +21,7 @@ namespace MultiFPS
 		void OnReceivedData(string data)
 		{
 			killCount.text = UserAccountDataTranslator.DataToKills(data).ToString() + " Kills";
-			killCount.text = UserAccountDataTranslator.DataToDeaths(data).ToString() + " Deaths";
+			deathCount.text = UserAccountDataTranslator.DataToDeaths(data).ToString() + " Deaths";
 		}
 	}
 }

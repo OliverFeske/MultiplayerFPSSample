@@ -7,6 +7,9 @@ namespace MultiFPS
 	[RequireComponent(typeof(PlayerSetup))]
 	public class PlayerManager : NetworkBehaviour
 	{
+		public int deaths;
+		public int kills;
+
 		[SerializeField] private GameObject[] disableGameObjectsOnDeath;
 		[SerializeField] private GameObject deathEffect;
 		[SerializeField] private GameObject spawnEffect;
@@ -107,7 +110,7 @@ namespace MultiFPS
 
 		// player applies the damage to his health on the server
 		[ClientRpc]
-		public void RpcTakeDamage(int _amount)
+		public void RpcTakeDamage(int _amount, string _sourceID)
 		{
 			if (isDead) { return; }
 
@@ -117,14 +120,22 @@ namespace MultiFPS
 
 			if (currentHealth <= 0)                                                  // if the current health is less or eqpual to 0, call death
 			{
-				Die();
+				Die(_sourceID);
 			}
 		}
 
 		// disables the wanted Behaviours and collider
-		void Die()
+		void Die(string _sourceID)
 		{
 			isDead = true;
+
+			PlayerManager _sourcePlayer = GameManager.GetPlayer(_sourceID);
+			if(_sourcePlayer != null)
+			{
+				_sourcePlayer.kills++;
+			}
+
+			deaths++;
 
 			// Disable components
 			for (int i = 0; i < disableOnDeath.Length; i++)

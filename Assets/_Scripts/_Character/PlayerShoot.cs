@@ -70,7 +70,7 @@ namespace MultiFPS
                 // If the Raycast hit something that has the tag "Player", jump into the Command CmdPlayerIsShot
                 if (_hit.collider.tag == PLAYER_TAG)
                 {
-                    CmdPlayerIsShot(_hit.collider.name, currentWeapon.damage);                   // send over an id of the hit object and some damage
+                    CmdPlayerIsShot(_hit.collider.name, currentWeapon.damage, transform.name);                   // send over an id of the hit object and some damage
                 }
 
 				// hit something and call CmdOnHit on server
@@ -111,12 +111,12 @@ namespace MultiFPS
 
         // Called on the server
         [Command]
-        void CmdPlayerIsShot(string _playerID, int _damage)
+        void CmdPlayerIsShot(string _playerID, int _damage, string _sourceID)
         {
             Debug.Log(_playerID + " has been shot.");
 
             PlayerManager _player = GameManager.GetPlayer(_playerID);               // finds the playercomponent with the given id
-            _player.RpcTakeDamage(_damage);                                         // deals damage inside a method of that player
+            _player.RpcTakeDamage(_damage, _sourceID);                                         // deals damage inside a method of that player
         }
     }
 }
