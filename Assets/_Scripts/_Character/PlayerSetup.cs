@@ -57,7 +57,7 @@ namespace MultiFPS
 		void CmdSetUsername(string _playerID, string _username)
 		{
 			PlayerManager player = GameManager.GetPlayer(_playerID);
-			if(player == null)
+			if(player != null)
 			{
 				player.Username = _username;
 			}

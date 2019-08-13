@@ -46,10 +46,10 @@ namespace MultiFPS
 
 		void OnDataRecieved(string data)
 		{
-			if(player.kills <= lastKills && player.deaths <= lastDeaths) { return; }
+			if(player.Kills <= lastKills && player.Deaths <= lastDeaths) { return; }
 
-			int _killsSinceLast = player.kills - lastKills;
-			int _deathsSinceLast = player.deaths - lastDeaths;
+			int _killsSinceLast = player.Kills - lastKills;
+			int _deathsSinceLast = player.Deaths - lastDeaths;
 
 			if (_killsSinceLast == 0 && _deathsSinceLast == 0) { return; }
 
@@ -61,8 +61,8 @@ namespace MultiFPS
 
 			string _newData = UserAccountDataTranslator.ValuesToData(_newKills, _newDeaths);
 
-			lastKills = player.kills;
-			lastKills = player.deaths;
+			lastKills = player.Kills;
+			lastKills = player.Deaths;
 
 			UserAccountManager.instance.LoggedIn_SaveDataButtonPressed(_newData);
 		}

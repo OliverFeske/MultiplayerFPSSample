@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 5111645608923876671}
   - component: {fileID: 5901272681804323517}
   - component: {fileID: 725750714012235373}
+  - component: {fileID: 1021117492518055001}
   m_Layer: 5
   m_Name: PlayerScoreboardItem
   m_TagString: Untagged
@@ -335,3 +336,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1021117492518055001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347515543505698932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843a37bb3f91054498da28d12e3698e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameText: {fileID: 3827705308565079289}
+  killsText: {fileID: 6593469250787353767}
+  deathsText: {fileID: 5900896038530633529}

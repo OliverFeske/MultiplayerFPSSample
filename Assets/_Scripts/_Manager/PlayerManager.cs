@@ -7,8 +7,8 @@ namespace MultiFPS
 	[RequireComponent(typeof(PlayerSetup))]
 	public class PlayerManager : NetworkBehaviour
 	{
-		public int deaths;
-		public int kills;
+		public int Deaths;
+		public int Kills;
 		[SyncVar]
 		public string Username = "Loading...";
 
@@ -134,10 +134,10 @@ namespace MultiFPS
 			PlayerManager _sourcePlayer = GameManager.GetPlayer(_sourceID);
 			if(_sourcePlayer != null)
 			{
-				_sourcePlayer.kills++;
+				_sourcePlayer.Kills++;
 			}
 
-			deaths++;
+			Deaths++;
 
 			// Disable components
 			for (int i = 0; i < disableOnDeath.Length; i++)
