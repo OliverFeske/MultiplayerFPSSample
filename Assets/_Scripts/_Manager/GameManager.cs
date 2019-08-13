@@ -11,6 +11,8 @@ namespace MultiFPS
         public static GameManager instance;
 
         public MatchSettings matchSettings;
+		public delegate void OnPlayerKilledCallback(string player, string source);
+		public OnPlayerKilledCallback onPlayerKilledCallback;
 
         void Awake()
         {

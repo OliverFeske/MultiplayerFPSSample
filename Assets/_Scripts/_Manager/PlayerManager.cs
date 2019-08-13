@@ -132,8 +132,9 @@ namespace MultiFPS
 			isDead = true;
 
 			PlayerManager _sourcePlayer = GameManager.GetPlayer(_sourceID);
-			if(_sourcePlayer != null)
+			if (_sourcePlayer != null)
 			{
+				GameManager.instance.onPlayerKilledCallback.Invoke(Username, _sourcePlayer.Username);
 				_sourcePlayer.Kills++;
 			}
 
