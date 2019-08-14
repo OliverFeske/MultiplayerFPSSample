@@ -36,6 +36,8 @@ namespace MultiFPS
 
 				// Configure PlayerUI
 				PlayerUI ui = playerUIInstance.GetComponent<PlayerUI>();
+				if(ui == null) { Debug.LogError("Missing PlayerUI component on the PlayerUI prefab"); }
+				ui.SetPlayer(GetComponent<PlayerManager>());
 
 				GetComponent<PlayerManager>().SetupPlayer();
 

@@ -69,7 +69,7 @@ namespace MultiFPS
 		{
 			Debug.Log("Shoot!");
 
-			if (!isLocalPlayer && !weaponManager.isReloading) { return; }
+			if (!isLocalPlayer || weaponManager.isReloading) { return; }
 
 			if (currentWeapon.Bullets <= 0)
 			{
@@ -92,6 +92,11 @@ namespace MultiFPS
 
 				// hit something and call CmdOnHit on server
 				CmdOnHit(_hit.point, _hit.normal);
+			}
+
+			if(currentWeapon.Bullets <= 0)
+			{
+				weaponManager.Reload();
 			}
 		}
 

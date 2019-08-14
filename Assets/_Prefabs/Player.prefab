@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811a8988dfffc9438626b1f2b1ce2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isReloading: 0
   weaponLayerName: Weapon
   primaryWeapon:
     Graphics: {fileID: 3498520262319898594, guid: 706b8e65d03a8b94b9b63d819fda344f,
@@ -747,7 +748,7 @@ MonoBehaviour:
     MaxBullets: 20
     Bullets: 20
     Range: 100
-    FireRate: 0
+    FireRate: 5
     ReloadTime: 1
   weaponHolder: {fileID: 212}
 --- !u!114 &358

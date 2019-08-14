@@ -9,8 +9,8 @@ namespace MultiFPS
 	{
 		public int Deaths;
 		public int Kills;
-		[SyncVar]
-		public string Username = "Loading...";
+		public float GetHealthPct() { return (float)currentHealth / maxHealth; }
+		[SyncVar] public string Username = "Loading...";
 
 		[SerializeField] private GameObject[] disableGameObjectsOnDeath;
 		[SerializeField] private GameObject deathEffect;
@@ -30,6 +30,7 @@ namespace MultiFPS
 			get { return _isDead; }
 			protected set { _isDead = value; }
 		}
+
 
 		// Setup Player over the server
 		public void SetupPlayer()
