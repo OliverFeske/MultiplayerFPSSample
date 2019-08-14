@@ -7,6 +7,7 @@
 // -> Jumping
 // -> Stamina / Sprint
 // -> Model(animated)
+// -> Forward roll / Backward roll
 
 // UI
 // -> StaminaUI
@@ -14,6 +15,7 @@
 // General
 // -> Scoring System
 // -> Weaponswitching
+// -> Options menu
 
 // Weapons
 // -> Scoping
@@ -22,5 +24,3 @@
 
 // Bugs
 // Collider interaction with environment
-// healthbar should get smaller to the left
-// client mouse is visible at first (tab in and out to make it invisible)

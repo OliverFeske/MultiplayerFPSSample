@@ -24,6 +24,7 @@ namespace MultiFPS
 				if(Cursor.lockState != CursorLockMode.None)
 				{
 					Cursor.lockState = CursorLockMode.None;
+					Cursor.visible = true;
 				}
 
 				motor.Move(Vector3.zero);
@@ -36,6 +37,7 @@ namespace MultiFPS
 			if (Cursor.lockState != CursorLockMode.Locked)
 			{
 				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
 			}
 
 			CalculateMovement();
