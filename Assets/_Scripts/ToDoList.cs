@@ -24,3 +24,4 @@
 
 // Bugs
 // Collider interaction with environment
+// mouse invisible on build after leaving room

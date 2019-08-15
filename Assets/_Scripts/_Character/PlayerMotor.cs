@@ -53,7 +53,7 @@ namespace MultiFPS
         void FixedUpdate()
         {
             PerformMovement();
-            PerformRotation();
+            //PerformRotation();
         }
 
         // Perform the calculated Movement
