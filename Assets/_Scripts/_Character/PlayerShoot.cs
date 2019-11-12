@@ -100,7 +100,7 @@ namespace MultiFPS
 			}
 		}
 
-		// Is called on the server whan a player shoots
+		// Is called on the server when a player shoots
 		[Command]
 		void CmdOnShoot()
 		{

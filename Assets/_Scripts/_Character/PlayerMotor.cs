@@ -8,9 +8,8 @@ namespace MultiFPS
     public class PlayerMotor : MonoBehaviour
     {
         [SerializeField] private Camera cam;
-
         [SerializeField] private float cameraRotationLimit = 80f;
-
+		[SerializeField] private float jumpForce = 20f;
 
         private Vector3 rotation = Vector3.zero;
         private float cameraRotationX = 0f;
@@ -23,7 +22,7 @@ namespace MultiFPS
 		{
 			if (Input.GetButtonDown("Jump"))
 			{
-				rb.AddForce(Vector3.up * 7, ForceMode.Impulse);
+				rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 			}
 		}
 
