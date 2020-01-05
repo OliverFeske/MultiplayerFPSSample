@@ -33405,7 +33405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 1
   shadowResolution: 1024
-  shadowDimmer: 1
+  shadowDimmer: 0.763
   volumetricShadowDimmer: 1
   shadowFadeDistance: 10000
   contactShadows: 0
